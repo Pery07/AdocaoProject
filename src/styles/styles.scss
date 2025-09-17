@@ -1,0 +1,16 @@
+@use './_tokens' as *;
+@use './_mixins' as *;
+@use './_utilities';
+
+:root { color-scheme: light; }
+body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: $bg-soft; color: $text-1; }
+a { color: $brand-2; text-decoration: none; }
+
+.hero {
+  @include container;
+  @include card;
+  background: $gradient-hero;
+  color: #fff;
+  padding: 48px 32px;
+  margin: 24px auto;
+}

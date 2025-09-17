@@ -1,0 +1,14 @@
+// Design tokens
+$brand-1: #ff6a3d; // header/cta
+$brand-2: #7f5af0; // hero gradient
+$bg-soft: #f4f5f7;
+$text-1: #111827;
+$text-2: #4b5563;
+$success: #22c55e;
+$warning: #f59e0b;
+$danger:  #ef4444;
+
+$radius-lg: 14px;
+$shadow-md: 0 10px 24px rgba(0,0,0,.08);
+
+$gradient-hero: linear-gradient(90deg, $brand-1, $brand-2);

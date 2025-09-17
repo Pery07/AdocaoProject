@@ -1,0 +1,13 @@
+<div class="filters">
+  <input placeholder="Espécie"/>
+  <input placeholder="Porte"/>
+  <input placeholder="Cidade"/>
+</div>
+<div class="cards">
+  <a class="animal" *ngFor="let a of animais" [routerLink]="[a.id]">
+    <ui-card>
+      <strong>{{a.nome}}</strong> — <span class="muted">{{a.especie}}</span>
+      <div class="badge badge--ok">Compatível {{a.compat}}%</div>
+    </ui-card>
+  </a>
+</div>

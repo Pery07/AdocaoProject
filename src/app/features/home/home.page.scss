@@ -1,0 +1,7 @@
+@use '../../../styles/_mixins' as *;
+@use '../../../styles/_tokens' as *;
+
+.como-funciona { @include container; margin-top: 24px; }
+.grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.btn { background:#fff; color:#111; padding:10px 14px; border-radius:10px; margin-right:8px; }
+.btn--sec { background: rgba(255,255,255,.2); color:#fff; border:1px solid #fff; }
