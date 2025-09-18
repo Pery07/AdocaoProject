@@ -1,3 +1,8 @@
-.filters { display:flex; gap: 8px; margin-bottom: 12px; }
-.cards { display:grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.filters {
+  display: flex; gap: 8px; margin-bottom: 12px;
+  select { padding: 8px 10px; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .btn-clear { padding: 8px 12px; border: 0; border-radius: 10px; background: #ff6a3d; color: #fff; }
+}
+.status { margin: 6px 0 12px; }
+.cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
 .animal { color: inherit; }

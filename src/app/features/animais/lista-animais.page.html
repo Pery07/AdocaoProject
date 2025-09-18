@@ -1,13 +1,35 @@
-<div class="filters">
-  <input placeholder="Espécie"/>
-  <input placeholder="Porte"/>
-  <input placeholder="Cidade"/>
-</div>
-<div class="cards">
-  <a class="animal" *ngFor="let a of animais" [routerLink]="[a.id]">
-    <ui-card>
-      <strong>{{a.nome}}</strong> — <span class="muted">{{a.especie}}</span>
-      <div class="badge badge--ok">Compatível {{a.compat}}%</div>
-    </ui-card>
-  </a>
-</div>
+<form [formGroup]="form" class="filters">
+  <select formControlName="especie">
+    <option value="">Espécie</option>
+    <option *ngFor="let e of (filtros$ | async)?.especies" [value]="e">{{ e }}</option>
+  </select>
+
+  <select formControlName="porte">
+    <option value="">Porte</option>
+    <option *ngFor="let p of (filtros$ | async)?.portes" [value]="p">{{ p | titlecase }}</option>
+  </select>
+
+  <select formControlName="cidade">
+    <option value="">Cidade</option>
+    <option *ngFor="let c of (filtros$ | async)?.cidades" [value]="c">{{ c }}</option>
+  </select>
+
+  <button type="button" class="btn-clear" (click)="limpar()">Limpar</button>
+</form>
+
+<div class="status" *ngIf="loading$ | async">Carregando…</div>
+
+<ng-container *ngIf="(animais$ | async) as lista">
+  <div *ngIf="lista.length; else vazio" class="cards">
+    <a class="animal" *ngFor="let a of lista" [routerLink]="[a.id]">
+      <ui-card>
+        <strong>{{ a.nome }}</strong>
+        <span class="muted"> • {{ a.especie }} • {{ a.porte | titlecase }} • {{ a.cidade }}</span>
+        <div class="badge badge--ok">Compatível {{ a.compat }}%</div>
+      </ui-card>
+    </a>
+  </div>
+  <ng-template #vazio>
+    <p class="muted">Nenhum animal encontrado para os filtros selecionados.</p>
+  </ng-template>
+</ng-container>

@@ -1,0 +1,15 @@
+.btn-hero { background: #ff6a3d; color: #fff; border: 0; padding: 10px 14px; border-radius: 10px; }
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,.45); }
+.modal {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: min(600px, 92vw); background: #fff; border-radius: 14px; box-shadow: 0 16px 40px rgba(0,0,0,.2);
+  padding: 16px;
+  header { display: flex; justify-content: space-between; align-items: center; }
+  .close { background: transparent; border: 0; font-size: 22px; }
+  textarea { width: 100%; margin-top: 8px; padding: 10px; border: 1px solid #e5e7eb; border-radius: 10px; }
+  .actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+  .btn-light { background: #f3f4f6; border: 0; padding: 8px 12px; border-radius: 10px; }
+  button[type="submit"] { background: #16a34a; color: #fff; border: 0; padding: 8px 12px; border-radius: 10px; }
+  .ok { color: #16a34a; margin-top: 8px; }
+  .erro { color: #ef4444; margin-top: 8px; }
+}

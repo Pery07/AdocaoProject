@@ -1,0 +1,31 @@
+<ng-container *ngIf="animal$ | async as a">
+  <h2>{{ a.nome }} <span class="muted">• {{ a.especie }} • {{ a.porte | titlecase }}</span></h2>
+  <p class="muted">Compatibilidade {{ a.compat }}% — {{ a.cidade }}</p>
+
+  <button class="btn-hero" (click)="abrirModal()">Manifestar Interesse</button>
+
+  <!-- Modal -->
+  <div class="overlay" *ngIf="showModal" (click)="fecharModal()"></div>
+  <section class="modal" *ngIf="showModal" role="dialog" aria-modal="true">
+    <header>
+      <h3>Manifestar Interesse em Adoção</h3>
+      <button class="close" (click)="fecharModal()">×</button>
+    </header>
+
+    <form [formGroup]="form" (ngSubmit)="enviar()">
+      <label>Conte um pouco sobre você e por que gostaria de adotar {{ a.nome }}:</label>
+      <textarea formControlName="mensagem" rows="5" placeholder="Ex.: Tenho experiência com animais, moro em casa com quintal..."></textarea>
+      <small *ngIf="form.controls.mensagem.invalid && form.controls.mensagem.touched" class="erro">
+        Escreva pelo menos 10 caracteres.
+      </small>
+
+      <div class="actions">
+        <button type="button" class="btn-light" (click)="fecharModal()">Cancelar</button>
+        <button type="submit" [disabled]="form.invalid || enviando">Enviar</button>
+      </div>
+
+      <p *ngIf="sucesso" class="ok">{{ sucesso }}</p>
+      <p *ngIf="erro" class="erro">{{ erro }}</p>
+    </form>
+  </section>
+</ng-container>
